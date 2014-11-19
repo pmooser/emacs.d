@@ -138,6 +138,9 @@
 ;; loading my personal customizations
 (require 'paul-clojure)
 (require 'paul-advice)
+(require 'paul-utils)
+
+(global-set-key (kbd "C-;") 'toggle-comment-region-or-line)
 
 ;; default frame characteristics
 (setq default-frame-alist
