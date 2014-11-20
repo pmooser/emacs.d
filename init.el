@@ -123,6 +123,7 @@
 
 ;; ido mode
 (require 'ido)
+(ido-mode t)
 
 ;; undo tree
 (require 'undo-tree)
