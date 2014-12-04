@@ -35,8 +35,10 @@
 ;; Bind C-z to ANYTHING other than the annoying minimize
 (global-set-key (kbd "C-z") nil)
 (global-set-key (kbd "M-t") nil)
+(global-set-key (kbd "M-`") 'ns-next-frame)
 
 (setq ns-command-modifier 'meta)
+
 ;;(setq ns-option-modifier 'super)
 
 (tool-bar-mode 0)

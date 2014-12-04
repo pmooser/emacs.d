@@ -8,7 +8,7 @@
 (setq cider-stacktrace-frames-background-color "black")
 
 ;; hack to enable font-lock in cider repl (https://github.com/clojure-emacs/cider/issues/749)
-;;(add-hook 'cider-repl-mode-hook 'clojure-font-lock-setup)
+(add-hook 'cider-repl-mode-hook 'clojure-font-lock-setup)
 
 ;; For some reason these 4 lines are critical to make
 ;; paredit work properly in the REPL - otherwise it will
@@ -51,31 +51,50 @@
 (dolist (hook lisp-modes)
   (add-hook hook 'do-lisps-setup))
 
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+
 ;;;;
 ;; ac-cider
 ;;;;
 
-(require 'auto-complete-config)
-(ac-config-default)
+;; (require 'auto-complete-config)
+;; (ac-config-default)
 
-(require 'ac-cider)
+;; (require 'ac-cider)
 
-(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-(add-hook 'cider-mode-hook 'ac-cider-setup)
-(add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+;; (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+;; (add-hook 'cider-mode-hook 'ac-cider-setup)
+;; (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
 
-(eval-after-load "auto-complete"
-  '(progn
-     (add-to-list 'ac-modes 'cider-mode)
-     (add-to-list 'ac-modes 'cider-repl-mode)))
+;; (eval-after-load "auto-complete"
+;;   '(progn
+;;      (add-to-list 'ac-modes 'cider-mode)
+;;      (add-to-list 'ac-modes 'cider-repl-mode)))
 
 ;;;;
 ;; company mode
 ;;;;
-;;(add-hook 'cider-mode-hook 'company-mode)
-;;(add-hook 'cider-repl-mode-hook 'company-mode)
 
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(require 'company)
+
+(global-company-mode)
+
+(require 'color)
+
+(let ((bg (face-attribute 'default :background)))
+  (custom-set-faces
+   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 30)))))
+   `(company-tooltip-common-selection ((t (:inherit default :foreground "grey" :background ,(color-lighten-name bg 50)))))
+   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background ,(color-lighten-name bg 50)))))
+   `(company-tooltip-common ((t (:background ,(color-lighten-name bg 50) :foreground "white"))))
+
+   `(company-preview-common ((t (:inherit default :foreground "white" :background "light slate gray"))))
+
+   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))))
+
+(add-hook 'cider-mode-hook 'company-mode)
+(add-hook 'cider-repl-mode-hook 'company-mode)
 
 ;;;;
 ;; cider repl
