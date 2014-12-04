@@ -5,6 +5,9 @@
 (require 'rainbow-delimiters)
 (require 'paredit)
 
+;; log cider messages (especially errors)
+;; (setq nrepl-log-messages t)
+
 (setq cider-stacktrace-frames-background-color "black")
 
 ;; hack to enable font-lock in cider repl (https://github.com/clojure-emacs/cider/issues/749)
@@ -86,7 +89,7 @@
    `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 30)))))
    `(company-tooltip-common-selection ((t (:inherit default :foreground "grey" :background ,(color-lighten-name bg 50)))))
    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background ,(color-lighten-name bg 50)))))
-   `(company-tooltip-common ((t (:background ,(color-lighten-name bg 50) :foreground "white"))))
+   `(company-tooltip-common ((t (:inherit default :foreground "white" :background ,(color-lighten-name bg 50)))))
 
    `(company-preview-common ((t (:inherit default :foreground "white" :background "light slate gray"))))
 
