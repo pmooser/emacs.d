@@ -78,24 +78,29 @@
 ;; company mode
 ;;;;
 
+(require 'color)
+
+;; Had some trouble getting these colors to apply - I've
+;; solved it hackily using a hook.
+
+(defun company-colors ()
+    (let ((bg (face-attribute 'default :background)))
+      (custom-set-faces
+       `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 30)))))
+       `(company-tooltip-common-selection ((t (:inherit default :foreground "grey" :background ,(color-lighten-name bg 50)))))
+       `(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background ,(color-lighten-name bg 50)))))
+       `(company-tooltip-common ((t (:inherit default :foreground "white" :background ,(color-lighten-name bg 50)))))
+       
+       `(company-preview-common ((t (:inherit default :foreground "white" :background "light slate gray"))))
+       
+       `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+       `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5))))))))
+
 (require 'company)
 
 (global-company-mode)
 
-(require 'color)
-
-(let ((bg (face-attribute 'default :background)))
-  (custom-set-faces
-   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 30)))))
-   `(company-tooltip-common-selection ((t (:inherit default :foreground "grey" :background ,(color-lighten-name bg 50)))))
-   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background ,(color-lighten-name bg 50)))))
-   `(company-tooltip-common ((t (:inherit default :foreground "white" :background ,(color-lighten-name bg 50)))))
-
-   `(company-preview-common ((t (:inherit default :foreground "white" :background "light slate gray"))))
-
-   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
-   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))))
-
+(add-hook 'company-mode-hook 'company-colors)
 (add-hook 'cider-mode-hook 'company-mode)
 (add-hook 'cider-repl-mode-hook 'company-mode)
 
