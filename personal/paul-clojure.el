@@ -54,7 +54,7 @@
 (dolist (hook lisp-modes)
   (add-hook hook 'do-lisps-setup))
 
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook 'eldoc-mode)
 
 ;;;;
 ;; ac-cider
@@ -114,6 +114,11 @@
           (lambda ()
             (show-paren-mode t)
             (paredit-mode +1)))
+
+;; formatting
+
+(put-clojure-indent 'pfn 2)
+(put-clojure-indent 'receive 4)
 
 (provide 'paul-clojure)
 
