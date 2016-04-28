@@ -28,7 +28,7 @@
      ;; make ctrl navigation work as it normally does (outside of paredit):
      (define-key paredit-mode-map (kbd "C-<right>") 'forward-word)
      (define-key paredit-mode-map (kbd "C-<left>") 'backward-word)
-
+     (define-key paredit-mode-map (kbd "{") 'paredit-open-curly)
      (define-key paredit-mode-map (kbd "C-<backspace>") 'paredit-backward-kill-word)
      (define-key paredit-mode-map (kbd "C-w") 'paredit-kill-region)
      (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
@@ -114,6 +114,9 @@
           (lambda ()
             (show-paren-mode t)
             (paredit-mode +1)))
+
+(put-clojure-indent 'pfn 2)
+(put-clojure-indent 'receive 4)
 
 (provide 'paul-clojure)
 
