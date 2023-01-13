@@ -17,7 +17,7 @@
   :hook (emacs-lisp-mode
          clojure-mode
          clojurescript-mode
-         clojure-repl-mode
+         cider-repl-mode
          lisp-mode
          lisp-interaction-mode))
 

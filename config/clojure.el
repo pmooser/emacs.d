@@ -6,6 +6,10 @@
 ;; log cider messages (especially errors)
 ;; (setq nrepl-log-messages t)
 
+;; fixing white background color in stack traces,
+;;   see: https://github.com/jackrusher/dotemacs/issues/33
+(set-variable 'cider-stacktrace-frames-background-color "grey20")
+
 (use-package cider
   :pin "MELPA Stable"
   :init
