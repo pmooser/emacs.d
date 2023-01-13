@@ -8,4 +8,11 @@ local.el
 *.elc
 .cask
 elpa
+transient
+projects
+undo
+ido.last
+network-security.data
+.cache
+.lsp-session*
 

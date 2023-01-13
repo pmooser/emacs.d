@@ -1,4 +1,4 @@
-;; general utility functions 
+;; general utility functions -*- lexical-binding: t -*-
 
 (defun toggle-comment-region-or-line ()
   "Toggle comment on either region or line."
@@ -13,5 +13,5 @@
         (comment-or-uncomment-region (mark) (point)))))
   (next-line))
 
-(provide 'paul-utils)
+(global-set-key (kbd "C-;") 'toggle-comment-region-or-line)
 

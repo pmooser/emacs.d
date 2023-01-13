@@ -1,16 +1,12 @@
-;; My collection of advice for various functions
+;; My collection of advice for various functions  -*- lexical-binding: t; -*-
 
 (defconst paul-indent-modes
   '(emacs-lisp-mode
     clojure-mode
-    haskell-mode
+    clojurescript-mode
+    cider-repl-mode
     lisp-interaction-mode
-    lisp-mode
-    c-mode
-    c++-mode
-    objc-mode
-    ruby-mode
-    java-mode))
+    lisp-mode))
 
 ;; auto-indent when pasting in certain modes
 (defadvice yank (after indent-yank activate)
@@ -21,6 +17,4 @@
 ;; make sure focus changes when list-buffers is called
 (defadvice list-buffers (after focus activate)
   (other-window 1))
-
-(provide 'paul-advice)
 
