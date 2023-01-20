@@ -27,3 +27,8 @@
 (use-package expand-region
   :bind (("C-=" . er/expand-region)))
 
+;; TODO - change face
+;; TOOD - add binding to enable/disable
+(use-package highlight-sexp
+  :ensure nil)
+
