@@ -36,7 +36,6 @@
   (put-clojure-indent 'pfn 2)
   (put-clojure-indent 'receive 4))
 
-
 (defun get-string-from-file (filePath)
   "Return filePath's file content."
   (with-temp-buffer
@@ -46,24 +45,25 @@
 ;; NOTE - cider gets confused sometimes, so we might have to occasionally explicitly call:
 ;;   cider-set-repl-type
 
-(defun clj-connect (project-name)
-  "Connect to nREPL for `project-name`."
-  (interactive "sProject name: ")
-  (let ((project-dir (concat "/Users/pmooser/work/projects/" project-name)))
-    (when (not (file-directory-p project-dir))
-      (error "No such project directory: %s" project-dir))
+(defun clj-connect ()
+  "Connect to nREPL project associated with current buffer."
+  (interactive)
+  (let ((project-dir (pm/vc-root)))
+    (when (not project-dir)
+      (error "Couldn't find project directory associated with current buffer!"))
     (let* ((nrepl-port (string-to-number (get-string-from-file (concat project-dir "/.nrepl-port"))))
            (params (list :host "localhost" :port nrepl-port :project-dir project-dir)))
       (cider-connect-clj params))))
 
-(defun shadow-connect (project-name)
-  "Connect to shadow-cljs nREPL for `project-name`. Assumes we already have another nREPL connection."
-  (interactive "sProject name: ")
-  (let ((project-dir (concat "/Users/pmooser/work/projects/" project-name)))
-    (when (not (file-directory-p project-dir))
-      (error "No such project directory: %s" project-dir))
+(defun shadow-connect ()
+  "Connect to shadow-cljs nREPL associated with current buffer. Note that this will check project-root/.dir-locals.el for defaults."
+  (interactive)
+  (let ((project-dir (pm/vc-root)))
+    (when (not project-dir)
+      (error "Couldn't find project directory associated with current buffer!"))
     (let* ((nrepl-port (string-to-number (get-string-from-file (concat project-dir "/.shadow-cljs/nrepl.port"))))
            (params (list :host "localhost" :port nrepl-port :cljs-repl-type 'shadow)))
       (if (null (cider-repls))
           (cider-connect-cljs params)
         (cider-connect-sibling-cljs params)))))
+

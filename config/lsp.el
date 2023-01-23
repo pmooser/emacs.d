@@ -9,6 +9,8 @@
   :config
   (setq gc-cons-threshold (* 100 1024 1024)
         read-process-output-max (* 1024 1024)
+        ;; log:
+        ;; lsp-log-io t
         ;; try to avoid pause on pasting text:
         ;; lsp-enable-on-type-formatting nil
         lsp-enable-indentation nil

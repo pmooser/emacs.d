@@ -21,12 +21,12 @@
 (load-config "path.el")
 (load-config "basic.el")
 (load-config "company.el")
+(load-config "vc.el")
 (load-config "paul-advice.el")
 (load-config "lisps.el")
 (load-config "clojure.el")
 (load-config "modeline.el")
 (load-config "utils.el")
-(load-config "vc.el")
 (load-config "lsp.el")
 (load-config "bqn.el")
 
@@ -73,7 +73,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ido-enable-flex-matching t)
- '(lsp-log-io t)
  '(ns-antialias-text t)
  '(package-selected-packages
    '(flycheck-projectile helm-lsp treemacs lsp-clojure lsp-ui flycheck lsp-treemacs lsp-mode magit doom-modeline minions all-the-icons cider expand-region idle-highlight-mode paredit rainbow-delimiters company ws-butler undo-tree multiple-cursors exec-path-from-shell use-package)))
