@@ -22,6 +22,7 @@
 (load-config "basic.el")
 (load-config "company.el")
 (load-config "vc.el")
+(load-config "hydra.el")
 (load-config "paul-advice.el")
 (load-config "lisps.el")
 (load-config "clojure.el")
@@ -75,7 +76,7 @@
  '(ido-enable-flex-matching t)
  '(ns-antialias-text t)
  '(package-selected-packages
-   '(flycheck-projectile helm-lsp treemacs lsp-clojure lsp-ui flycheck lsp-treemacs lsp-mode magit doom-modeline minions all-the-icons cider expand-region idle-highlight-mode paredit rainbow-delimiters company ws-butler undo-tree multiple-cursors exec-path-from-shell use-package)))
+   '(hydra flycheck-projectile lsp-clojure flycheck lsp-mode magit doom-modeline minions all-the-icons cider expand-region idle-highlight-mode paredit rainbow-delimiters company ws-butler undo-tree multiple-cursors exec-path-from-shell use-package)))
 
 ;; scroll left/right using trackpad gestures
 ;; (setq mouse-wheel-tilt-scroll t)
