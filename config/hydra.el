@@ -10,15 +10,16 @@
   (if arg 'on 'off))
 
 (defun lsp-active? ()
-  (and (boundp lsp-mode) lsp-mode))
+  (and (boundp 'lsp-mode) lsp-mode))
 
 (defun pm/toggle-lsp ()
   (interactive)
-  (let* ((on? (lsp-active?))
-         (mode-arg (if on? -1 1)))
-    (lsp-mode mode-arg)
-    (lsp-managed-mode mode-arg)
-    (message "Turning lsp-mode %s !" (on-off (not on?)))))
+  (when (boundp 'lsp-mode)
+    (let* ((on? (lsp-active?))
+           (mode-arg (if on? -1 1)))
+      (lsp-mode mode-arg)
+      (lsp-managed-mode mode-arg)
+      (message "Turning lsp-mode %s !" (on-off (not on?))))))
 
 (defun pm/toggle-relative ()
   (interactive)
