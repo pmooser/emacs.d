@@ -33,10 +33,10 @@
                Actions          ^^^^^^^^^^^^^^^^^^^^^^^^^^^                      Lines
 
  [_c_] clj-connect                ^^^^^^^^^^^^^^^^^^^^^^^^^     [_t_] toggle truncate lines (%(on-off truncate-lines)) 
- [_s_] shadow-connect             ^^^^^^^^^^^^^^^^^^^^^^^^^     [_#_] toggle line numbers  
- [_l_] toggle LSP (%(on-off (lsp-active?)))                 [_r_] toggle relative line numbers
+ [_s_] shadow-connect             ^^^^^^^^^^^^^^^^^^^^^^^^^     [_#_] toggle line numbers 
+ [_m_] magit                      ^^^^^^^^^^^^^^^^^^^^^^^^^     [_r_] toggle relative line numbers
+ [_l_] toggle LSP (%(on-off (lsp-active?)))                 
  [___] toggle highlight sexps (%(on-off highlight-sexp-mode))
- [_m_] magit                      ^^^^^^^^^^^^^^^^^^^^^^^^^
 
  [_q_] quit
 "
