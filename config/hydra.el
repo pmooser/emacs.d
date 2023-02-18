@@ -34,7 +34,8 @@
 
  [_c_] clj-connect                ^^^^^^^^^^^^^^^^^^^^^^^^^     [_t_] toggle truncate lines (%(on-off truncate-lines)) 
  [_s_] shadow-connect             ^^^^^^^^^^^^^^^^^^^^^^^^^     [_#_] toggle line numbers 
- [_m_] magit                      ^^^^^^^^^^^^^^^^^^^^^^^^^     [_r_] toggle relative line numbers
+ [_!_] register-list              ^^^^^^^^^^^^^^^^^^^^^^^^^     [_r_] toggle relative line numbers
+ [_m_] magit
  [_l_] toggle LSP (%(on-off (lsp-active?)))
  [___] toggle highlight sexps (%(on-off highlight-sexp-mode))
 
@@ -43,6 +44,7 @@
   ("q" nil nil)
   ("l" pm/toggle-lsp nil)
   ("m" magit nil :color blue)
+  ("!" register-list nil :color blue)
   ("t" toggle-truncate-lines nil)
   ("#" display-line-numbers-mode nil)
   ("r" pm/toggle-relative nil)

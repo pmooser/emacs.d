@@ -12,7 +12,8 @@
                 (background-color . "black")))
        ;; for macs, use menlo:
        (alist (if (eq system-type 'darwin)
-                  (append '((font . "Menlo-13")) alist))))
+                  (append '((font . "Menlo-13")) alist)
+                alist)))
  (setq default-frame-alist alist))
 
 ;; always do a top/bottom split:
