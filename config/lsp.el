@@ -22,8 +22,11 @@
         lsp-headerline-breadcrumb-enable nil)
   :commands lsp)
 
-;; (use-package lsp-ui
-;;   :commands lsp-ui-mode)
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :config
+  (setq lsp-ui-doc-enable nil
+        lsp-ui-peek-enable nil))
 
 (use-package flycheck)
 

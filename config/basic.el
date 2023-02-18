@@ -2,16 +2,18 @@
 ;;
 ;; global key bindings and default frame configs and such
 
-(setq default-frame-alist
-      '((font . "Menlo-13")
-        (top    . 50)
-        (left   . 80)
-        (width  . 120)
-        (height . 60)
-        (cursor-color . "mediumslateblue")
-        (cursor-type . box)
-        (foreground-color . "white")
-        (background-color . "black")))
+(let* ((alist '((top    . 50)
+                (left   . 80)
+                (width  . 120)
+                (height . 60)
+                (cursor-color . "mediumslateblue")
+                (cursor-type . box)
+                (foreground-color . "white")
+                (background-color . "black")))
+       ;; for macs, use menlo:
+       (alist (if (eq system-type 'darwin)
+                  (append '((font . "Menlo-13")) alist))))
+ (setq default-frame-alist alist))
 
 ;; always do a top/bottom split:
 (setq
@@ -67,4 +69,7 @@
 (use-package bs
   :ensure nil
   :bind (("C-x C-b" . bs-show)))
+
+(use-package rect
+  :ensure nil)
 

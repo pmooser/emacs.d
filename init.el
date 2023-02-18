@@ -30,6 +30,7 @@
 (load-config "utils.el")
 (load-config "lsp.el")
 (load-config "bqn.el")
+;;(load-config "registers.el")
 
 ;;;;
 ;; faces

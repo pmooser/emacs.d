@@ -21,7 +21,7 @@
 (use-package all-the-icons
   :config
   ;; rescale the icons to avoid a clipping bug when using clojure LSP mode:
-  (setq all-the-icons-scale-factor 1.1))
+  (setq all-the-icons-scale-factor 1.0))
 
 ;; collapse minor modes into a menu with a gear icon:
 (use-package minions
@@ -33,7 +33,12 @@
 (use-package doom-modeline
   :after (all-the-icons minions)
   :config
+  (doom-modeline-def-modeline 'main
+    '(bar matches buffer-info remote-host buffer-position selection-info)
+    '(misc-info minor-modes checker major-mode process vcs "  "))
   (setq doom-modeline-minor-modes t
+        ;; doom-modeline--flycheck-icon nil
         doom-modeline-buffer-encoding nil)
   (doom-modeline-mode 1))
+
 
