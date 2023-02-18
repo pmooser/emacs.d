@@ -10,15 +10,16 @@
   (if arg 'on 'off))
 
 (defun lsp-active? ()
-  (and (boundp lsp-mode) lsp-mode))
+  (and (boundp 'lsp-mode) lsp-mode))
 
 (defun pm/toggle-lsp ()
   (interactive)
-  (let* ((on? (lsp-active?))
-         (mode-arg (if on? -1 1)))
-    (lsp-mode mode-arg)
-    (lsp-managed-mode mode-arg)
-    (message "Turning lsp-mode %s !" (on-off (not on?)))))
+  (when (boundp 'lsp-mode)
+    (let* ((on? (lsp-active?))
+           (mode-arg (if on? -1 1)))
+      (lsp-mode mode-arg)
+      (lsp-managed-mode mode-arg)
+      (message "Turning lsp-mode %s !" (on-off (not on?))))))
 
 (defun pm/toggle-relative ()
   (interactive)
@@ -32,11 +33,10 @@
                Actions          ^^^^^^^^^^^^^^^^^^^^^^^^^^^                      Lines
 
  [_c_] clj-connect                ^^^^^^^^^^^^^^^^^^^^^^^^^     [_t_] toggle truncate lines (%(on-off truncate-lines)) 
- [_s_] shadow-connect             ^^^^^^^^^^^^^^^^^^^^^^^^^     [_#_] toggle line numbers
- [_!_] register list              ^^^^^^^^^^^^^^^^^^^^^^^^^     [_r_] toggle relative line numbers
+ [_s_] shadow-connect             ^^^^^^^^^^^^^^^^^^^^^^^^^     [_#_] toggle line numbers 
+ [_m_] magit                      ^^^^^^^^^^^^^^^^^^^^^^^^^     [_r_] toggle relative line numbers
  [_l_] toggle LSP (%(on-off (lsp-active?)))
  [___] toggle highlight sexps (%(on-off highlight-sexp-mode))
- [_m_] magit                      ^^^^^^^^^^^^^^^^^^^^^^^^^
 
  [_q_] quit
 "
@@ -45,7 +45,6 @@
   ("m" magit nil :color blue)
   ("t" toggle-truncate-lines nil)
   ("#" display-line-numbers-mode nil)
-  ("!" register-list nil :color blue)
   ("r" pm/toggle-relative nil)
   ("_" highlight-sexp-mode nil)
   ("c" (lambda ()
