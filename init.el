@@ -19,8 +19,8 @@
   (load (concat
          (concat (locate-user-emacs-file "config/")) config-file-name)))
 
-(load-config "themes.el")
 (load-config "package-management.el")
+(load-config "themes.el")
 (load-config "path.el")
 (load-config "basic.el")
 (load-config "company.el")
