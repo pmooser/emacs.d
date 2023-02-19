@@ -97,4 +97,17 @@
 
 (global-set-key (kbd "C-c r")  'hydra-paul-reg-menu/body)
 
-;; (set-register ?q nil)
+(defhydra hydra-paul-window-menu (:color amaranth :hint nil)
+  "
+          [Resize Window]
+
+          _<up>_: enlarge
+_<left>_: shrink        _<right>_: enlarge
+         _<down>_: shrink"
+  ("q" nil nil)
+  ("<up>"    enlarge-window nil)
+  ("<down>"  shrink-window nil)
+  ("<left>"  shrink-window-horizontally nil)
+  ("<right>" enlarge-window-horizontally nil))
+
+(global-set-key (kbd "C-c w") 'hydra-paul-window-menu/body)

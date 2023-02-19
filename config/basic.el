@@ -10,10 +10,10 @@
                 (cursor-type . box)
                 (foreground-color . "white")
                 (background-color . "black")))
-       ;; for macs, use menlo:
-       (alist (if (eq system-type 'darwin)
-                  (append '((font . "Menlo-13")) alist)
-                alist)))
+       ;; fonts based on system-type:
+       (alist (cond ((eq system-type 'darwin)    (append '((font . "Menlo-13")) alist))
+                    ((eq system-type 'gnu/linux) (append '((font . "Ubuntu Mono-16")) alist))
+                    (t alist))))
  (setq default-frame-alist alist))
 
 ;; always do a top/bottom split:
