@@ -15,4 +15,5 @@ ido.last
 network-security.data
 .cache
 .lsp-session*
+eln-cache
 
