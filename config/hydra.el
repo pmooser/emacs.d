@@ -101,13 +101,19 @@
   "
           [Resize Window]
 
-          _<up>_: enlarge
-_<left>_: shrink        _<right>_: enlarge
-         _<down>_: shrink"
+           _<up>_: enlarge
+_<left>_: shrink      _<right>_: enlarge
+           _<down>_: shrink
+
+   Hold \"shift\" for larger changes"
   ("q" nil nil)
-  ("<up>"    enlarge-window nil)
-  ("<down>"  shrink-window nil)
-  ("<left>"  shrink-window-horizontally nil)
-  ("<right>" enlarge-window-horizontally nil))
+  ("<up>"      enlarge-window nil)
+  ("S-<up>"    (enlarge-window 5) nil)
+  ("<down>"    shrink-window nil)
+  ("S-<down>"  (shrink-window 5) nil)
+  ("<left>"    shrink-window-horizontally nil)
+  ("S-<left>"  (shrink-window-horizontally 5) nil)
+  ("<right>"   enlarge-window-horizontally nil)
+  ("S-<right>" (enlarge-window-horizontally 5) nil))
 
 (global-set-key (kbd "C-c w") 'hydra-paul-window-menu/body)

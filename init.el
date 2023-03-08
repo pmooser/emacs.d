@@ -24,6 +24,7 @@
          (concat (locate-user-emacs-file "config/")) config-file-name)))
 
 (load-config "package-management.el")
+(load-config "org.el")
 (load-config "themes.el")
 (load-config "path.el")
 (load-config "basic.el")
