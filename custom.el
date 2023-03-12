@@ -75,4 +75,4 @@
  '(ns-antialias-text t)
  '(org-safe-remote-resources '("\\`https://fniessen\\.github\\.io\\(?:/\\|\\'\\)"))
  '(package-selected-packages
-   '(yaml-mode htmlize org-appear org-tempo ob-clojure org-bullets org nano-theme lsp-ui bqn-mode zenburn-theme smyx-theme seti-theme oceanic-theme naquadah-theme dakrone-theme atom-one-dark-theme melancholy-theme hydra flycheck-projectile lsp-clojure flycheck lsp-mode magit doom-modeline minions all-the-icons cider expand-region idle-highlight-mode paredit rainbow-delimiters company ws-butler undo-tree multiple-cursors exec-path-from-shell use-package)))
+   '(counsel yaml-mode htmlize org-appear org-tempo ob-clojure org-bullets org nano-theme lsp-ui bqn-mode zenburn-theme smyx-theme seti-theme oceanic-theme naquadah-theme dakrone-theme atom-one-dark-theme melancholy-theme hydra flycheck-projectile lsp-clojure flycheck lsp-mode magit doom-modeline minions all-the-icons cider expand-region idle-highlight-mode paredit rainbow-delimiters company ws-butler undo-tree multiple-cursors exec-path-from-shell use-package)))

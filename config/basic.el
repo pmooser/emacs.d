@@ -2,6 +2,11 @@
 ;;
 ;; global key bindings and default frame configs and such
 
+(use-package dash
+  :ensure t)
+
+(setq-local potential-fonts '("Menlo-13" "Ubuntu Mono-16"))
+
 (let* ((alist '((top    . 50)
                 (left   . 80)
                 (width  . 120)
@@ -10,21 +15,27 @@
                 (cursor-type . box)
                 (foreground-color . "white")
                 (background-color . "black")))
-       ;; fonts based on system-type:
-       (alist (cond ((eq system-type 'darwin)    (append '((font . "Menlo-13")) alist))
-                    ((eq system-type 'gnu/linux) (append '((font . "Ubuntu Mono-16")) alist))
-                    (t alist))))
- (setq default-frame-alist alist))
+       ;; look for a default font to use, and set it if found:
+       (available-font (some (lambda (f) (when (x-list-fonts f) f)) potential-fonts))
+       (alist (if available-font
+                  (append `((font . ,available-font)) alist)
+                alist)))
+  (setq default-frame-alist alist))
 
 ;; always do a top/bottom split:
 (setq
  split-width-threshold nil
  split-height-threshold 0)
 
-(use-package ido
-  :ensure nil
+;; install ivy and counsel:
+(use-package counsel
+  :ensure t)
+
+(use-package ivy
   :config
-  (ido-mode t))
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t
+        ivy-count-format "(%d/%d) "))
 
 (use-package multiple-cursors
   :bind (("C-S-c C-S-c" . mc/edit-lines)
