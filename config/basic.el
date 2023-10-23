@@ -16,7 +16,7 @@
                 (foreground-color . "white")
                 (background-color . "black")))
        ;; look for a default font to use, and set it if found:
-       (available-font (some (lambda (f) (when (x-list-fonts f) f)) potential-fonts))
+       (available-font (-some (lambda (f) (when (x-list-fonts f) f)) potential-fonts))
        (alist (if available-font
                   (append `((font . ,available-font)) alist)
                 alist)))
